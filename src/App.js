@@ -1,15 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import HandleUrl from './HandleUrl';
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {[urls]};
+        
+        this.state =  {
+            urls : ['Chris'],
+            currentUrlItem: {text: '', key: ''}
+        };
+        
     }
-
-    render() {
-    	return <div>Websites: {this.state.urls}</div>;
+    handleInput = (e) => {
+        console.log('Testing!')
     }
+    addUrl = () => {
+        console.log('Testing 2!');
+    }
+      render () {
+         return (
+             <HandleUrl addUrl={this.addUrl}
+             />
+         );
+      }
 }
+
+
+export default App
