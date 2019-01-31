@@ -2,26 +2,18 @@ import React from 'react';
 import HandleUrl from './HandleUrl';
 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state =  {
-            urls : ['Chris'],
-            currentUrlItem: {text: '', key: ''}
-        };
-        
+class App extends React.Component {    
+    
+    onAddUrl(url) {
+        console.log(url)
+   
     }
-    handleInput = (e) => {
-        console.log('Testing!')
-    }
-    addUrl = () => {
-        console.log('Testing 2!');
-    }
-      render () {
+    
+    render () {
          return (
-             <HandleUrl addUrl={this.addUrl}
-             />
+             <div className="ui container" style={{marginTop: '20px'}}>
+                <HandleUrl onSubmit={this.onAddUrl} />
+              </div>
          );
       }
 }
