@@ -19,12 +19,6 @@ class HandleUrl extends React.Component {
                 value={this.state.url} 
                 onChange={e => this.setState({url : e.target.value})}></input>
                 </form>
-        
-                <ul>
-                    <li key={this.state.url}>
-                        {this.state.url} 
-                    </li>
-                </ul>
             </div>
         )
     }
