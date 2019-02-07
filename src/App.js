@@ -1,6 +1,9 @@
 import React from 'react';
 import HandleUrl from './HandleUrl';
+import ProcessList from './ProcessList'
 
+
+var urlList = [];
 
 class App extends React.Component {    
     constructor(props) {
@@ -10,27 +13,19 @@ class App extends React.Component {
     };
 }
 
-    onAddUrl(url) {
-        console.log(url)
-   
-    }
-    
-    updateUrl = value => {
+    addUrl = value => {
+        urlList.push(value)
+        console.log(urlList);
         this.setState({
             urls : value
         });
-        console.log(this.state);
-    }
+    };
 
     render () {
          return (
              <div className="ui container" style={{marginTop: '20px'}}>
-                <HandleUrl onSubmit={this.updateUrl} />
-                <ul>
-                    <li key={this.state.urls}>
-                        {this.state.urls} 
-                    </li>
-                </ul>
+                <HandleUrl onSubmit={this.addUrl.bind(this)} />                
+                <ProcessList list={urlList}  />
             </div>
          );
       }
