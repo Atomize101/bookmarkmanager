@@ -21,10 +21,18 @@ class App extends React.Component {
         });
     };
 
+    deleteUrl = value => {
+        urlList.pop(value);
+        this.setState({
+            urls : value
+        });
+        
+    }
+
     render () {
          return (
              <div className="ui container" style={{marginTop: '20px'}}>
-                <HandleUrl onSubmit={this.addUrl.bind(this)} />                
+                <HandleUrl onSubmit={this.addUrl.bind(this)} deleteUrl={this.deleteUrl.bind(this)} />                
                 <ProcessList list={urlList}  />
             </div>
          );

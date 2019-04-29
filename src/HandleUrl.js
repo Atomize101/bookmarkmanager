@@ -9,6 +9,11 @@ class HandleUrl extends React.Component {
         this.props.onSubmit(this.state.url)
     }
 
+    deleteUrl = (event) => {
+        event.preventDefault();
+        this.props.deleteUrl(this.state.url)
+    }
+
     render () {
         return (
             <div className="App">
@@ -18,6 +23,9 @@ class HandleUrl extends React.Component {
                 <input type="text" 
                 value={this.state.url} 
                 onChange={e => this.setState({url : e.target.value})}></input>
+                <button type="submit">Delete</button>
+                <input type="text"
+                onSubmit={this.deleteUrl} />
                 </form>
             </div>
         )
